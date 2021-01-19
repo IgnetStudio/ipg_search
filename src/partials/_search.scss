@@ -1,0 +1,10 @@
+// SEARCH
+
+.search {
+    background: $color-alabaster;
+    height: $helper-space * 4;
+    &__wrapper {
+        @include flex-center;
+        height: $helper-space * 4;
+    }
+}

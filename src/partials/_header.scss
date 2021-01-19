@@ -1,11 +1,13 @@
 // HEADER
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    & > div {
-        @include flex-center;
-        height: $helper-space * 3;
+    background: $color-marine;
+    height: $helper-space * 3;
+    &__wrapper {
+        & > div {
+            @include flex-center;
+            height: $helper-space * 3;
+        }
     }
     &__brand {
         h1 {

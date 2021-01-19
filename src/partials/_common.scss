@@ -1,8 +1,6 @@
 // COMMON
 
 .container-fluid {
-    background: $color-marine;
-    height: $helper-space * 3;
     width: 100%;
 }
 
@@ -11,4 +9,9 @@
     @include min-lg {
         max-width: 1200px;
     }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
 }
