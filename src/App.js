@@ -11,8 +11,10 @@ import './App.scss';
 async function App() {
   const template = document.createElement('template');
   template.innerHTML = `
-  <div class="container">
-    ${await Header()}
+  <div class="container-fluid">
+    <div class="container">
+      ${await Header()}
+    </div>
   </div>
   `;
 

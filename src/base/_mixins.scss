@@ -1,0 +1,20 @@
+// HELPERS
+
+$helper-space: 1rem;
+
+// MIXINS
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@mixin text-uppercase {
+    text-transform: uppercase;
+}

@@ -1,0 +1,12 @@
+// BREAKPOINTS
+
+$device-xs: 480px;
+$device-sm: 768px;
+$device-md: 960px;
+$device-lg: 1280px;
+
+@mixin min-lg {
+    @media screen and (min-width: #{$device-lg}) {
+        @content;
+    }
+}
