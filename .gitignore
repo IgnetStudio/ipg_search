@@ -1,0 +1,8 @@
+# ignore node dependency directories
+node_modules/
+
+# ignore stash files
+stash/
+
+# ignore minified files
+*.min.*

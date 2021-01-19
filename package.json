@@ -1,0 +1,16 @@
+{
+  "name": "ipg_search",
+  "version": "1.0.0",
+  "description": "Ignet Playground: Search box",
+  "main": "index.js",
+  "repository": "git@github.com:IgnetStudio/ipg_search.git",
+  "author": "[IgnetStudio] <ignet.studio@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/runtime-corejs2": "^7.12.5",
+    "node-sass": "^5.0.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}
