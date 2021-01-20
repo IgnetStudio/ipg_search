@@ -1,9 +1,22 @@
 'use strict';
 
+async function fetchResults() {
+  const response = await fetch('http://localhost:5000/results');
+  const results = await response.json();
+  console.log(results);
+  return results;
+}
+
+try {
+  fetchResults();
+} catch (error) {
+  console.error(error);
+}
+
 const Table = () => {
   const template = `
     <div class="table__wrapper wrapper">
-      <table aria-label="Table results">
+      <table class="table__results" aria-label="Table results">
         <thead>
           <tr>
             <th>ID</th>

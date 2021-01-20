@@ -2,4 +2,20 @@
 
 .table {
     background: $color-white;
+    &__results {
+        width: 100%;
+        margin-top: $helper-space * 2;
+        text-align: left;
+        color: $color-silver;
+        tr {
+            border-bottom: $helper-space / 16 solid $color-alabaster;
+            th,
+            td {
+                padding: $helper-space $helper-space * 1.5;
+            }
+            td:nth-child(2) {
+                color: $color-black;
+            }
+        }
+    }
 }
