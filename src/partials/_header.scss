@@ -31,9 +31,9 @@
                     padding: $helper-space / 2;
                     text-decoration: none;
                     &.selected {
+                        @include border-radius;
                         background: $color-bermuda;
                         color: $color-white;
-                        border-radius: $helper-space / 4;
                     }
                 }
             }

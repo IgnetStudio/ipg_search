@@ -7,4 +7,30 @@
         @include flex-center;
         height: $helper-space * 4;
     }
+    &__box {
+        position: relative;
+    }
+    &__icon {
+        &::before {
+            content: url(../public/img/search.png);
+            position: absolute;
+            top: $helper-space / 2;
+            left: $helper-space / 2;
+        }
+    }
+    &__input {
+        @include border-radius;
+        padding: 0 $helper-space * 1.5;
+        height: $helper-space * 2;
+        border: $helper-space / 8 solid $color-silver;
+    }
+    &__button {
+        @include border-radius;
+        background: $color-green;
+        color: $color-white;
+        padding: 0 $helper-space * 1.5;
+        height: $helper-space * 2;
+        border: 0;
+        cursor: pointer;
+    }
 }

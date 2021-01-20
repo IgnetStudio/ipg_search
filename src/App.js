@@ -1,3 +1,5 @@
+'use strict';
+
 // components
 
 import Header from './components/Header';

@@ -8,6 +8,10 @@
     "build": "parcel build public/index.html --out-dir dist --public-url ./",
     "clean": "rimraf ./dev && rimraf -rf ./.cache"
   },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
+  },
   "repository": "git@github.com:IgnetStudio/ipg_search.git",
   "keywords": [
     "ignet"
@@ -20,6 +24,7 @@
     "@babel/runtime-corejs2": "^7.12.5",
     "node-sass": "^5.0.0",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.0",
     "rimraf": "^3.0.2"
   }
 }

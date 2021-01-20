@@ -18,3 +18,7 @@ $helper-space: 1rem;
 @mixin text-uppercase {
     text-transform: uppercase;
 }
+
+@mixin border-radius {
+    border-radius: $helper-space / 3;
+}
