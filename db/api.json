@@ -1,6 +1,7 @@
 {
   "results": [
-    { "id": 12401, "Company name": "ACME Corporation", "Owner email": "tom.hudges@apple.com" },
-    { "id": 12401, "Company name": "intera d.o.o.", "Owner email": "the.boss@intera.si" }
+    { "id": 0, "name": "Rozman", "email": "email@example.com" },
+    { "id": 7, "name": "Žibert", "email": "email@example.si" },
+    { "id": 123, "name": "Zajc in Koren", "email": "email@subdomain.example.si" }
   ]
 }
