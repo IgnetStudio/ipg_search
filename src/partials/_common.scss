@@ -1,5 +1,9 @@
 // COMMON
 
+body {
+    @include font-primary;
+}
+
 .container-fluid {
     width: 100%;
 }

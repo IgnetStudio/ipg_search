@@ -20,12 +20,14 @@
     }
     &__input {
         @include border-radius;
+        @include font-primary;
         padding: 0 $helper-space * 1.5;
         height: $helper-space * 2;
         border: $helper-space / 8 solid $color-silver;
     }
     &__button {
         @include border-radius;
+        @include font-primary;
         background: $color-green;
         color: $color-white;
         padding: 0 $helper-space * 1.5;

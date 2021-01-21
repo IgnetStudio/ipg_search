@@ -5,6 +5,7 @@
 import Header from './components/Header';
 import Search from './components/Search';
 import Table from './components/Table';
+import Data from './utils/Data';
 
 // styles
 
@@ -13,6 +14,7 @@ import './App.scss';
 // code
 
 async function App() {
+  Data();
   const template = document.createElement('template');
   template.innerHTML = `
   <div class="container-fluid header">
