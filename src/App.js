@@ -32,7 +32,7 @@ async function App() {
   </div>
   `;
 
-  // Return a new node from template
+  // return a new node from template
   return template.content.cloneNode(true);
 }
 
