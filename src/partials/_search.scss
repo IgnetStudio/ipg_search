@@ -45,14 +45,14 @@
     &__button {
         @include border-radius;
         @include font-primary;
+        @include border-wcag;
         background: $color-green;
         color: $color-white;
         padding: 0 $helper-space * 1.5;
         height: $helper-space * 2;
-        border: 0;
         cursor: pointer;
         &:focus {
-            outline-color: transparent;
+            border-color: $color-venice;
         }
     }
 }

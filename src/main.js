@@ -2,12 +2,19 @@
 
 import App from './App';
 
-// code
+// toggle dark mode
+
+const body = document.querySelector('body');
+const contrastToggle = document.querySelector('.contrast-toggle');
+
+contrastToggle.addEventListener('click', function () {
+  body.classList.toggle('dark-mode');
+});
+
+// Load application
 
 const app = async () => {
   document.getElementById('App').appendChild(await App());
 };
-
-// Load application
 
 app();

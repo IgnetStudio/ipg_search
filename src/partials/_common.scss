@@ -4,6 +4,12 @@ body {
     @include animation-opacity;
     @include transition-all;
     @include font-primary;
+    position: relative;
+    height: 100vh;
+    &.dark-mode {
+        @include color-invert;
+        @include transition-filter;
+    }
 }
 
 .container-fluid {

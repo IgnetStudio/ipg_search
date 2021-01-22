@@ -11,6 +11,9 @@
         }
     }
     &__brand {
+        img {
+            @include border-wcag;
+        }
         h1 {
             @include text-uppercase;
             display: inline-block;
@@ -31,7 +34,7 @@
                 @include clearfix;
                 position: relative;
                 > li {
-                    width: $helper-space * 3;
+                    width: $helper-space * 3.25;
                     position: relative;
                     text-align: center;
                     z-index: 1;
@@ -39,7 +42,7 @@
                         &:nth-of-type(#{$i}) {
                             &:hover {
                                 ~ .header__filter-overlay {
-                                    left: ($i - 1) * $helper-space * 3;
+                                    left: ($i - 1) * $helper-space * 3.25;
                                 }
                             }
                         }
@@ -49,12 +52,13 @@
                         position: absolute;
                         top: 0;
                         left: 0;
-                        width: $helper-space * 3;
+                        width: $helper-space * 3.25;
                         height: 100%;
                         background-color: $color-venice;
                         z-index: 0;
                     }
                     > a {
+                        @include border-wcag;
                         display: block;
                         color: $color-bermuda;
                         padding: $helper-space / 2;

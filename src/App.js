@@ -22,7 +22,7 @@ async function App() {
       ${Header()}
     </div>
   </div>
-  <div class="container-fluid search">
+  <div id="search" class="container-fluid search">
     <div class="container">
       ${await Search()}
     </div>

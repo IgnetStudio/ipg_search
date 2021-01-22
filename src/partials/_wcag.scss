@@ -1,0 +1,35 @@
+// WCAG
+
+.screenreader-text {
+    @include transition-transform;
+    @include border-wcag;
+    position: absolute;
+    span {
+        @include flex-center;
+        justify-content: center;
+        height: $helper-space * 3;
+        padding: 0 $helper-space;
+    }
+    &:focus {
+        @include fade-top;
+        display: inline-block;
+        background: $color-venice;
+        color: $color-alabaster;
+        width: $helper-space * 9;
+        height: $helper-space * 3;
+        margin: auto;
+        z-index: 2;
+    }
+}
+
+.helpers {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    .contrast-toggle {
+        background: url("../public/img/contrast.svg") no-repeat;
+        width: $helper-space * 2;
+        height: $helper-space * 2;
+        border: 0;
+    }
+}

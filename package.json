@@ -4,7 +4,8 @@
   "description": "Ignet Playground: Search box",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run clean && parcel public/index.html --out-dir dev -p 3000",
+    "api": "npx json-server --watch db/api.json --port 5000",
+    "dev": "yarn run clean && parcel public/index.html --out-dir dev -p 3000",
     "build": "parcel build public/index.html --out-dir dist --public-url ./",
     "clean": "rimraf ./dev && rimraf -rf ./.cache",
     "test": "jest"
