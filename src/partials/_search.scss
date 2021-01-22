@@ -24,6 +24,17 @@
         padding: 0 $helper-space * 1.5;
         height: $helper-space * 2;
         border: $helper-space / 8 solid $color-silver;
+        &:focus {
+            outline-color: $color-venice;
+        }
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder,
+        &::-ms-input-placeholder {
+            color: $color-silver;
+        }
+        &::-moz-placeholder {
+            opacity: 1;
+        }
     }
     &__button {
         @include border-radius;

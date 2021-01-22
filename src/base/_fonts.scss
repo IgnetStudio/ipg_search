@@ -6,6 +6,10 @@
     font-weight: 400;
 }
 
-@mixin text-bold {
+@mixin font-bold {
     font-weight: 700;
+}
+
+@mixin font-xs {
+    font-size: $helper-space * 0.75;
 }

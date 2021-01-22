@@ -9,11 +9,14 @@ const Header = () => {
       </div>
       <div class="header__filter">
         <span>Filter:</span>
-        <ul>
-          <li><a href="#" class="selected">All</a></li>
-          <li><a href="#">Free</a></li>
-          <li><a href="#">Paying</a></li>
-        </ul>
+        <nav class="header__navigation">
+          <ul>
+            <li><a href="#" class="selected">All</a></li>
+            <li><a href="#">Free</a></li>
+            <li><a href="#">Paying</a></li>
+            <li class="header__filter-overlay"></li>
+          </ul>
+        </nav>
       </div>
     </header>
     `;

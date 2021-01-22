@@ -1,6 +1,7 @@
 // HEADER
 
 .header {
+    @include font-xs;
     background: $color-marine;
     height: $helper-space * 3;
     &__wrapper {
@@ -23,17 +24,49 @@
             color: $color-bermuda;
             margin-right: $helper-space / 2;
         }
-        ul {
-            @include flex-row;
-            li {
-                a {
-                    color: $color-bermuda;
-                    padding: $helper-space / 2;
-                    text-decoration: none;
-                    &.selected {
-                        @include border-radius;
-                        background: $color-bermuda;
-                        color: $color-white;
+        .header__navigation {
+            width: auto;
+            > ul {
+                @include flex-row;
+                @include clearfix;
+                position: relative;
+                > li {
+                    width: $helper-space * 3;
+                    position: relative;
+                    text-align: center;
+                    z-index: 1;
+                    @for $i from 1 through 5 {
+                        &:nth-of-type(#{$i}) {
+                            &:hover {
+                                ~ .header__filter-overlay {
+                                    left: ($i - 1) * $helper-space * 3;
+                                }
+                            }
+                        }
+                    }
+                    &.header__filter-overlay {
+                        @include transition-all;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: $helper-space * 3;
+                        height: 100%;
+                        background-color: $color-venice;
+                        z-index: 0;
+                    }
+                    > a {
+                        display: block;
+                        color: $color-bermuda;
+                        padding: $helper-space / 2;
+                        text-decoration: none;
+                        &.selected {
+                            @include border-radius;
+                            // background: $color-bermuda;
+                            color: $color-white;
+                        }
+                        &:hover {
+                            color: $color-white;
+                        }
                     }
                 }
             }
