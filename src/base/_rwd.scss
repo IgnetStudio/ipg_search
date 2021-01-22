@@ -5,8 +5,14 @@ $device-sm: 768px;
 $device-md: 960px;
 $device-lg: 1280px;
 
-@mixin min-lg {
+@mixin min-md {
     @media screen and (min-width: #{$device-lg}) {
+        @content;
+    }
+}
+
+@mixin max-xs {
+    @media screen and (max-width: #{$device-xs - 1px}) {
         @content;
     }
 }

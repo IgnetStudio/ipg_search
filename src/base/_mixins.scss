@@ -23,8 +23,29 @@ $helper-space: 1rem;
     border-radius: $helper-space / 3;
 }
 
+$transition-delay: 0.3s;
+$transition-timing: linear;
+
 @mixin transition-all {
-    transition: all 0.35s linear;
+    transition: all $transition-timing $transition-delay;
+}
+
+@mixin animation-opacity {
+    animation: intro $transition-timing $transition-delay;
+    @keyframes intro {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
+@mixin hide-element {
+    left: -9999px;
+    position: absolute;
+    visibility: hidden;
 }
 
 @mixin clearfix {

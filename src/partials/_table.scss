@@ -2,19 +2,42 @@
 
 .table {
     background: $color-white;
+    &__wrapper {
+        overflow-x: auto; // table width auto scale
+    }
     &__results {
         width: 100%;
         margin-top: $helper-space * 2;
         text-align: left;
         color: $color-silver;
+        thead {
+            @include max-xs {
+                @include hide-element;
+            }
+        }
         tr {
             border-bottom: $helper-space / 16 solid $color-alabaster;
+            @include max-xs {
+                @include flex-row;
+                border: $helper-space / 16 solid $color-silver;
+                margin-bottom: $helper-space * 2;
+            }
             th,
             td {
                 padding: $helper-space $helper-space * 1.5;
             }
-            td:nth-child(2) {
-                color: $color-black;
+            td {
+                @include max-xs {
+                    position: relative;
+                    width: 100%;
+                    border: $helper-space / 16 solid $color-alabaster;
+                    &:first-child {
+                        background: $color-alabaster;
+                    }
+                }
+                &:nth-child(2) {
+                    color: $color-black;
+                }
             }
         }
     }

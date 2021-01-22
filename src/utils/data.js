@@ -1,3 +1,5 @@
+'use strict';
+
 // consume results
 
 export async function fetchResults(query = '') {
