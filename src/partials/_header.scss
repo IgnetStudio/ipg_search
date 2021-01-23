@@ -38,7 +38,7 @@
                     position: relative;
                     text-align: center;
                     z-index: 1;
-                    @for $i from 1 through 5 {
+                    @for $i from 1 through 4 {
                         &:nth-of-type(#{$i}) {
                             &:hover {
                                 ~ .header__filter-overlay {
@@ -49,27 +49,38 @@
                     }
                     &.header__filter-overlay {
                         @include transition-all;
+                        @include border-radius;
                         position: absolute;
                         top: 0;
                         left: 0;
+                        background: $color-bermuda;
                         width: $helper-space * 3.25;
                         height: 100%;
-                        background-color: $color-venice;
                         z-index: 0;
                     }
                     > a {
                         @include border-wcag;
+                        @include transition-all;
                         display: block;
-                        color: $color-bermuda;
                         padding: $helper-space / 2;
                         text-decoration: none;
-                        &.selected {
-                            @include border-radius;
-                            // background: $color-bermuda;
+                        color: $color-bermuda;
+                    }
+                    &:first-child {
+                        > a {
                             color: $color-white;
                         }
-                        &:hover {
+                    }
+                }
+                &:hover {
+                    li:hover {
+                        > a {
                             color: $color-white;
+                        }
+                    }
+                    li:not(:hover) {
+                        > a {
+                            color: $color-bermuda;
                         }
                     }
                 }

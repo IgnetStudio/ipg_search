@@ -25,7 +25,7 @@ function drawTable(data) {
   // handle values
   tableBody.innerHTML = '';
   if (!data.length) {
-    tableBody.innerHTML = 'no data';
+    tableBody.innerHTML = 'No matching records found';
   }
 
   data.forEach(function (item, index) {
@@ -55,7 +55,7 @@ const Data = () => {
     const searchInput = document.querySelector('input[name="search-data"]');
     let debouncer;
 
-    // value interception
+    // search box value handler
     searchInput.addEventListener('keyup', async (e) => {
       const query = e.target.value;
 

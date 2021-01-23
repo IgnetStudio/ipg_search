@@ -13,6 +13,7 @@
     &:focus {
         @include fade-top;
         display: inline-block;
+        box-sizing: border-box;
         background: $color-venice;
         color: $color-alabaster;
         width: $helper-space * 9;
@@ -26,10 +27,57 @@
     position: fixed;
     bottom: 0;
     right: 0;
+    padding: $helper-space / 2;
     .contrast-toggle {
+        @include border-wcag;
         background: url("../public/img/contrast.svg") no-repeat;
         width: $helper-space * 2;
         height: $helper-space * 2;
-        border: 0;
+        padding: $helper-space;
+        cursor: pointer;
+    }
+}
+
+.dark-mode {
+    @include color-invert;
+    @include transition-filter;
+    .header {
+        &__wrapper {
+            @include color-invert;
+        }
+        &__brand {
+            img:focus {
+                border-color: $color-bermuda;
+            }
+        }
+        &__filter {
+            .header__navigation > ul > li a:focus {
+                border: 2px dashed $color-carbon;
+                outline: 0;
+            }
+        }
+    }
+    .search {
+        background: $color-venice;
+        &__icon::before {
+            content: "";
+        }
+        &__input {
+            color: $color-white;
+            border-color: $color-carbon;
+            padding-left: $helper-space / 2;
+            background: $color-carbon;
+            &:focus {
+                border-color: $color-wcag;
+            }
+        }
+        &__button {
+            color: $color-black;
+        }
+    }
+    .table {
+        &__results {
+            color: $color-venice;
+        }
     }
 }

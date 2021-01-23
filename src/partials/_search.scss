@@ -21,25 +21,17 @@
     &__input {
         @include border-radius;
         @include font-primary;
+        @include input-placeholder {
+            color: $color-silver;
+        }
         padding-left: $helper-space * 1.5;
         height: $helper-space * 2;
         border: $helper-space / 8 solid $color-silver;
-        // pseudo-classes & pseudo-elements
+        color: $color-carbon;
         &:focus,
         &:focus-visible {
             border: $helper-space / 8 solid $color-venice;
             outline: 0;
-        }
-        &::-webkit-input-placeholder,
-        &::-moz-placeholder,
-        &::-ms-input-placeholder {
-            color: $color-silver;
-        }
-        &::-moz-placeholder {
-            opacity: 1;
-        }
-        &::-webkit-search-cancel-button {
-            -webkit-appearance: none;
         }
     }
     &__button {
@@ -51,8 +43,5 @@
         padding: 0 $helper-space * 1.5;
         height: $helper-space * 2;
         cursor: pointer;
-        &:focus {
-            border-color: $color-venice;
-        }
     }
 }

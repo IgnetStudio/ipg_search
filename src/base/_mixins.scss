@@ -19,6 +19,13 @@ $helper-space: 1rem;
     text-transform: uppercase;
 }
 
+@mixin text-selection {
+    ::selection {
+        background: $color-venice;
+        color: $color-white;
+    }
+}
+
 @mixin color-invert {
     filter: invert(100%);
 }
@@ -32,6 +39,12 @@ $helper-space: 1rem;
     &:focus {
         border-color: $color-wcag;
         outline: 0;
+        color: $color-white;
+    }
+    .dark-mode {
+        &:focus {
+            border-color: $color-wcag;
+        }
     }
 }
 
@@ -39,6 +52,22 @@ $helper-space: 1rem;
     left: -9999px;
     position: absolute;
     visibility: hidden;
+}
+
+@mixin input-placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+        opacity: 1;
+    }
+    &::-ms-input-placeholder {
+        @content;
+    }
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
 }
 
 @mixin clearfix {
@@ -53,20 +82,20 @@ $helper-space: 1rem;
 
 // ANIMATIONS
 
-$transition-delay: 0.3s;
-$transition-timing: linear;
+$transition-duration: 0.3s;
+$transition-easing: linear;
 
 @mixin transition-filter {
-    transition: filter $transition-timing $transition-delay;
+    transition: filter $transition-duration $transition-easing;
 }
 
 @mixin transition-all {
-    transition: all $transition-timing $transition-delay;
+    transition: all $transition-duration $transition-easing;
 }
 
 @mixin transition-transform {
     transform: translateY(-2rem);
-    transition: transform $transition-delay $transition-timing;
+    transition: transform $transition-duration $transition-easing;
     width: 1px;
     height: 1px;
     top: auto;
@@ -82,7 +111,7 @@ $transition-timing: linear;
 }
 
 @mixin animation-opacity {
-    animation: intro $transition-timing $transition-delay;
+    animation: intro $transition-duration $transition-easing;
     @keyframes intro {
         0% {
             opacity: 0;

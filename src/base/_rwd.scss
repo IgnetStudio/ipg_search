@@ -1,18 +1,22 @@
 // BREAKPOINTS
 
 $device-xs: 480px;
-$device-sm: 768px;
 $device-md: 960px;
-$device-lg: 1280px;
 
 @mixin min-md {
-    @media screen and (min-width: #{$device-lg}) {
+    @media screen and (min-width: #{$device-md}) {
         @content;
     }
 }
 
 @mixin max-xs {
     @media screen and (max-width: #{$device-xs - 1px}) {
+        @content;
+    }
+}
+
+@mixin retina-device {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         @content;
     }
 }
