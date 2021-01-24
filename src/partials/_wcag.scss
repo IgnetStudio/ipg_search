@@ -8,7 +8,6 @@
         @include flex-center;
         justify-content: center;
         height: $helper-space * 2.5;
-        padding: 0 $helper-space;
     }
     &:focus {
         @include fade-top;
@@ -24,12 +23,11 @@
 }
 
 .helpers {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
     padding: $helper-space / 2;
     @include device-landscape {
-        position: absolute;
         display: flex;
         justify-content: center;
         width: 100%;
@@ -38,7 +36,6 @@
     }
     @include max-xs {
         @include color-invert;
-        position: absolute;
         top: 0;
         bottom: auto;
         padding: $helper-space * 0.375;
@@ -48,6 +45,7 @@
         background: url("../public/img/contrast.svg") no-repeat;
         width: $helper-space * 2;
         height: $helper-space * 2;
+        height: auto;
         padding: $helper-space;
         cursor: pointer;
         @include device-landscape {
@@ -67,14 +65,16 @@
 .dark-mode {
     @include color-invert;
     @include transition-filter;
+    @include font-wcag;
     background: $color-black;
     .header {
-        &__wrapper {
-            @include color-invert;
-        }
+        background: $color-white;
         &__brand {
+            @include max-xs {
+                border-color: $color-venice;
+            }
             img:focus {
-                border-color: $color-bermuda;
+                border-color: $color-black;
             }
         }
         &__filter {
@@ -85,10 +85,14 @@
                 > li {
                     > a {
                         color: $color-carbon;
+                        margin-top: 0;
                         &:focus {
-                            border: 2px dashed $color-carbon;
+                            border: 2px dashed $color-black;
                             outline: 0;
                         }
+                    }
+                    &.header__filter-overlay {
+                        background: $color-venice;
                     }
                     &:first-child {
                         > a {
@@ -107,16 +111,16 @@
         }
     }
     .search {
-        background: $color-venice;
+        border-color: $color-venice;
         &__icon::before {
             content: "";
         }
         &__input {
+            @include color-invert;
             color: $color-white;
-            border-color: $color-carbon;
+            border-color: $color-silver;
             padding-left: $helper-space / 2;
             background: $color-carbon;
-            @include color-invert;
             &:focus {
                 border-color: $color-alabaster;
             }
@@ -126,22 +130,61 @@
         }
         &__button {
             color: $color-black;
+            &:hover {
+                background: $color-wcag;
+                border-color: $color-wcag;
+            }
         }
     }
     .table {
         &__results {
             color: $color-venice;
+            tbody {
+                > tr.table__empty {
+                    @include color-invert;
+                }
+            }
             tr {
                 border-color: $color-wcag;
                 &:hover {
                     background: $color-green;
+                    td {
+                        &:first-child {
+                            background: $color-white;
+                            color: $color-black;
+                            border-bottom-color: $color-marine;
+                        }
+                    }
+                }
+            }
+            th,
+            td {
+                @include transition-all;
+                border: $helper-space / 16 solid $color-wcag;
+            }
+            td {
+                &:first-child {
+                    background: $color-wcag;
+                    color: $color-white;
+                    @include min-xs {
+                        border-bottom-color: $color-white;
+                    }
                 }
             }
         }
     }
+    .screenreader-text {
+        span {
+            height: $helper-space * 2.75;
+        }
+        :focus {
+            border-color: $color-black;
+            background: $color-wcag;
+        }
+    }
     .helpers {
         .contrast-toggle:focus {
-            border-color: $color-bermuda;
+            border-color: $color-white;
         }
     }
 }

@@ -4,6 +4,9 @@
     @include font-sm;
     background: $color-marine;
     height: $helper-space * 3;
+    @include max-xs {
+        height: $helper-space * 6;
+    }
     &__wrapper {
         @include max-xs {
             display: block;
@@ -14,8 +17,14 @@
         }
     }
     &__brand {
+        @include max-xs {
+            border-bottom: $helper-space / 8 solid transparent;
+        }
         img {
             @include border-wcag;
+            @include max-md {
+                margin-left: $helper-space / 2;
+            }
         }
         h1 {
             @include text-uppercase;
@@ -28,6 +37,14 @@
         }
     }
     &__filter {
+        @include max-md {
+            margin-right: $helper-space / 2;
+        }
+        @include max-xs {
+            background: $color-white;
+            padding: 0 $helper-space / 2;
+            margin: 0;
+        }
         span {
             @include text-uppercase;
             color: $color-bermuda;
@@ -43,10 +60,14 @@
                 @include clearfix;
                 position: relative;
                 > li {
-                    width: $helper-space * 3.25;
+                    width: $helper-space * 3.6;
                     position: relative;
                     text-align: center;
                     z-index: 1;
+                    justify-content: center;
+                    @include font-md;
+                    height: $helper-space * 2;
+
                     @include max-xs {
                         width: $helper-space * 5;
                         @include font-md;
@@ -55,7 +76,7 @@
                         &:nth-of-type(#{$i}) {
                             &:hover {
                                 ~ .header__filter-overlay {
-                                    left: ($i - 1) * $helper-space * 3.25;
+                                    left: ($i - 1) * $helper-space * 3.6;
                                     @include max-xs {
                                         left: ($i - 1) * $helper-space * 5;
                                     }
@@ -70,7 +91,7 @@
                         top: 0;
                         left: 0;
                         background: $color-bermuda;
-                        width: $helper-space * 3.25;
+                        width: $helper-space * 3.6;
                         height: 100%;
                         z-index: 0;
                         @include max-xs {
@@ -84,7 +105,10 @@
                         padding: $helper-space / 2;
                         text-decoration: none;
                         color: $color-bermuda;
+                        margin-top: -#{$helper-space / 8};
                         @include max-xs {
+                            @include flex-center;
+                            justify-content: center;
                             &:focus {
                                 color: $color-wcag;
                                 border-color: $color-wcag;

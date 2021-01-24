@@ -2,18 +2,23 @@
 
 .table {
     background: $color-white;
-    height: calc(100vh - #{$helper-space * 7});
-    @include max-xs {
-        margin-top: $helper-space / 2;
+    @include min-xs {
+        height: calc(100vh - #{$helper-space * 7});
     }
     &__wrapper {
-        overflow-x: auto; // table width auto scale
+        overflow-x: auto;
+        @include max-xs {
+            padding: $helper-space / 2;
+        }
     }
     &__results {
         width: 100%;
         margin-top: $helper-space * 2;
         text-align: left;
         color: $color-silver;
+        @include max-xs {
+            margin: 0;
+        }
         thead {
             @include font-sm;
             @include max-xs {
@@ -30,7 +35,7 @@
             }
         }
         tr {
-            border-bottom: $helper-space / 16 solid $color-alabaster;
+            @include transition-all;
             &:hover {
                 background: $color-alabaster;
                 @include max-xs {
@@ -47,12 +52,18 @@
                 @include flex-row;
                 border: $helper-space / 16 solid $color-silver;
                 margin-bottom: $helper-space / 2;
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
             th,
             td {
+                height: $helper-space;
                 width: auto;
                 vertical-align: middle;
                 padding: $helper-space $helper-space * 1.5;
+                border: $helper-space / 16 solid transparent;
+                border-bottom: $helper-space / 16 solid $color-alabaster;
                 @include min-lg {
                     &:first-child {
                         width: 10%;
@@ -63,6 +74,9 @@
                 }
                 @include device-landscape {
                     padding: $helper-space * 0.75;
+                }
+                @include max-xs {
+                    padding: $helper-space * 0.875;
                 }
             }
             td {

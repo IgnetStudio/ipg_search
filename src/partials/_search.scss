@@ -3,13 +3,22 @@
 .search {
     background: $color-alabaster;
     height: $helper-space * 4;
+    border-top: $helper-space / 8 solid transparent;
+    border-bottom: $helper-space / 8 solid transparent;
+    @include max-xs {
+        height: $helper-space * 6;
+        padding: $helper-space / 2 0;
+        border-color: $color-bermuda;
+    }
     &__wrapper {
         @include flex-center;
         height: $helper-space * 4;
+        @include max-md {
+            margin: 0 $helper-space / 2;
+        }
         @include max-xs {
             flex-flow: column wrap;
             height: $helper-space * 6;
-            margin-top: $helper-space * 3;
         }
     }
     &__box {
