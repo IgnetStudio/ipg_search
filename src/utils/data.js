@@ -20,12 +20,17 @@ async function getData(query = '') {
 // fill-up the table
 
 function drawTable(data) {
-  const tableBody = document.querySelector('table > tbody');
+  const tableBody = document.querySelector('table.table__results > tbody');
+  const searchInput = document.querySelector('input[name="search-data"]');
 
   // handle values
+  const noData = 'No data';
+  const tableEmpty = `<tr class="table__empty"><td>${noData}</td></tr>`;
+  searchInput.classList.remove('input__error');
   tableBody.innerHTML = '';
   if (!data.length) {
-    tableBody.innerHTML = 'No matching records found';
+    tableBody.innerHTML = tableEmpty;
+    searchInput.classList.add('input__error');
   }
 
   data.forEach(function (item, index) {

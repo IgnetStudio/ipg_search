@@ -5,8 +5,8 @@ body {
     @include transition-all;
     @include font-primary;
     @include text-selection;
+    background: $color-white;
     position: relative;
-    height: 100vh;
 }
 
 .container-fluid {

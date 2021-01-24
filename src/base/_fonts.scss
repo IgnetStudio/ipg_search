@@ -10,6 +10,14 @@
     font-weight: 700;
 }
 
-@mixin font-xs {
+@mixin font-sm {
     font-size: $helper-space * 0.75;
+}
+
+@mixin font-md {
+    font-size: $helper-space * 0.875;
+}
+
+@mixin font-xl {
+    font-size: $helper-space;
 }

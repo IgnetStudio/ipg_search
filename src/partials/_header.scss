@@ -1,10 +1,13 @@
 // HEADER
 
 .header {
-    @include font-xs;
+    @include font-sm;
     background: $color-marine;
     height: $helper-space * 3;
     &__wrapper {
+        @include max-xs {
+            display: block;
+        }
         & > div {
             @include flex-center;
             height: $helper-space * 3;
@@ -19,6 +22,9 @@
             display: inline-block;
             color: $color-venice;
             margin-left: $helper-space / 2;
+            @include max-xs {
+                @include font-xl;
+            }
         }
     }
     &__filter {
@@ -26,6 +32,9 @@
             @include text-uppercase;
             color: $color-bermuda;
             margin-right: $helper-space / 2;
+            @include max-xs {
+                display: none;
+            }
         }
         .header__navigation {
             width: auto;
@@ -38,11 +47,18 @@
                     position: relative;
                     text-align: center;
                     z-index: 1;
+                    @include max-xs {
+                        width: $helper-space * 5;
+                        @include font-md;
+                    }
                     @for $i from 1 through 4 {
                         &:nth-of-type(#{$i}) {
                             &:hover {
                                 ~ .header__filter-overlay {
                                     left: ($i - 1) * $helper-space * 3.25;
+                                    @include max-xs {
+                                        left: ($i - 1) * $helper-space * 5;
+                                    }
                                 }
                             }
                         }
@@ -57,6 +73,9 @@
                         width: $helper-space * 3.25;
                         height: 100%;
                         z-index: 0;
+                        @include max-xs {
+                            width: $helper-space * 5;
+                        }
                     }
                     > a {
                         @include border-wcag;
@@ -65,6 +84,12 @@
                         padding: $helper-space / 2;
                         text-decoration: none;
                         color: $color-bermuda;
+                        @include max-xs {
+                            &:focus {
+                                color: $color-wcag;
+                                border-color: $color-wcag;
+                            }
+                        }
                     }
                     &:first-child {
                         > a {

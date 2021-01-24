@@ -1,10 +1,24 @@
 // BREAKPOINTS
 
 $device-xs: 480px;
+$device-sm: 768px;
 $device-md: 960px;
+$device-lg: 1280px;
+
+@mixin min-lg {
+    @media screen and (min-width: #{$device-lg}) {
+        @content;
+    }
+}
 
 @mixin min-md {
     @media screen and (min-width: #{$device-md}) {
+        @content;
+    }
+}
+
+@mixin min-sm {
+    @media screen and (min-width: #{$device-sm}) {
         @content;
     }
 }
@@ -15,7 +29,13 @@ $device-md: 960px;
     }
 }
 
-@mixin retina-device {
+@mixin device-landscape {
+    @media screen and (min-width: #{$device-xs}) and (max-width: #{$device-sm - 1px}) {
+        @content;
+    }
+}
+
+@mixin device-retina {
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         @content;
     }

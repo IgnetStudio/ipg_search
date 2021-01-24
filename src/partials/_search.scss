@@ -6,9 +6,17 @@
     &__wrapper {
         @include flex-center;
         height: $helper-space * 4;
+        @include max-xs {
+            flex-flow: column wrap;
+            height: $helper-space * 6;
+            margin-top: $helper-space * 3;
+        }
     }
     &__box {
         position: relative;
+        @include max-xs {
+            order: 2;
+        }
     }
     &__icon {
         &::before {
@@ -16,15 +24,33 @@
             position: absolute;
             top: $helper-space / 2;
             left: $helper-space / 2;
+            @include max-xs {
+                top: $helper-space * 0.75;
+            }
         }
     }
     &__input {
         @include border-radius;
         @include font-primary;
+        @include font-md;
         @include input-placeholder {
             color: $color-silver;
         }
-        padding-left: $helper-space * 1.5;
+        @include device-landscape {
+            width: 36vw;
+        }
+        @include min-md {
+            width: 20vw;
+        }
+        @include min-lg {
+            width: 16vw;
+        }
+        @include max-xs {
+            @include font-xl;
+            width: 95vw;
+            height: $helper-space * 2.75;
+        }
+        padding-left: $helper-space * 1.75;
         height: $helper-space * 2;
         border: $helper-space / 8 solid $color-silver;
         color: $color-carbon;
@@ -33,15 +59,31 @@
             border: $helper-space / 8 solid $color-venice;
             outline: 0;
         }
+        &.input__error {
+            border-color: $color-wcag;
+        }
     }
     &__button {
         @include border-radius;
         @include font-primary;
         @include border-wcag;
+        @include transition-all;
+        @include font-xl;
         background: $color-green;
         color: $color-white;
         padding: 0 $helper-space * 1.5;
         height: $helper-space * 2;
+        border-style: solid;
         cursor: pointer;
+        @include max-xs {
+            width: 95vw;
+            order: 1;
+            height: $helper-space * 2.75;
+        }
+        &:hover {
+            background: $color-white;
+            border-color: $color-green;
+            color: $color-green;
+        }
     }
 }

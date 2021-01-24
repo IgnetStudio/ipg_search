@@ -2,6 +2,10 @@
 
 .table {
     background: $color-white;
+    height: calc(100vh - #{$helper-space * 7});
+    @include max-xs {
+        margin-top: $helper-space / 2;
+    }
     &__wrapper {
         overflow-x: auto; // table width auto scale
     }
@@ -11,23 +15,59 @@
         text-align: left;
         color: $color-silver;
         thead {
+            @include font-sm;
             @include max-xs {
                 @include hide-element;
             }
         }
+        tbody {
+            @include font-md;
+            > tr.table__empty {
+                border-color: transparent;
+                > td {
+                    color: $color-wcag;
+                }
+            }
+        }
         tr {
             border-bottom: $helper-space / 16 solid $color-alabaster;
+            &:hover {
+                background: $color-alabaster;
+                @include max-xs {
+                    border-color: $color-venice;
+                    background: $color-white;
+                    td:first-child {
+                        background: $color-venice;
+                        border-color: $color-venice;
+                        color: $color-white;
+                    }
+                }
+            }
             @include max-xs {
                 @include flex-row;
                 border: $helper-space / 16 solid $color-silver;
-                margin-bottom: $helper-space * 2;
+                margin-bottom: $helper-space / 2;
             }
             th,
             td {
+                width: auto;
+                vertical-align: middle;
                 padding: $helper-space $helper-space * 1.5;
+                @include min-lg {
+                    &:first-child {
+                        width: 10%;
+                    }
+                    &:nth-child(2) {
+                        width: 25%;
+                    }
+                }
+                @include device-landscape {
+                    padding: $helper-space * 0.75;
+                }
             }
             td {
                 @include max-xs {
+                    @include font-xl;
                     position: relative;
                     width: 100%;
                     border: $helper-space / 16 solid $color-alabaster;
@@ -36,6 +76,7 @@
                     }
                 }
                 &:nth-child(2) {
+                    @include font-xl;
                     color: $color-carbon;
                 }
             }
