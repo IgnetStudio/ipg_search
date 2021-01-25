@@ -13,7 +13,7 @@ import './App.scss';
 
 // code
 
-async function App() {
+const App = async () => {
   Data();
   const template = document.createElement('template');
   template.innerHTML = `
@@ -36,6 +36,6 @@ async function App() {
 
   // return a new node from template
   return template.content.cloneNode(true);
-}
+};
 
 export default App;

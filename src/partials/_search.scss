@@ -3,18 +3,18 @@
 .search {
     background: $color-alabaster;
     height: $helper-space * 4;
-    border-top: $helper-space / 8 solid transparent;
-    border-bottom: $helper-space / 8 solid transparent;
+    border-top: $border-placeholder;
+    border-bottom: $border-placeholder;
     @include max-xs {
         height: $helper-space * 6;
-        padding: $helper-space / 2 0;
+        padding: $helper-half 0;
         border-color: $color-bermuda;
     }
     &__wrapper {
         @include flex-center;
         height: $helper-space * 4;
         @include max-md {
-            margin: 0 $helper-space / 2;
+            margin: 0 $helper-half;
         }
         @include max-xs {
             flex-flow: column wrap;
@@ -31,8 +31,11 @@
         &::before {
             content: url(../public/img/search.png);
             position: absolute;
-            top: $helper-space / 2;
-            left: $helper-space / 2;
+            top: $helper-half;
+            left: $helper-half;
+            @include device-retina {
+                filter: opacity(0.5);
+            }
             @include max-xs {
                 top: $helper-space * 0.75;
             }
@@ -42,6 +45,12 @@
         @include border-radius;
         @include font-primary;
         @include font-md;
+        @include input-status;
+        @include input-safari;
+        padding-left: $helper-space * 1.75;
+        height: $helper-space * 2;
+        border: $border-width $border-style $color-silver;
+        color: $color-carbon;
         @include input-placeholder {
             color: $color-silver;
         }
@@ -55,44 +64,53 @@
             width: 16vw;
         }
         @include max-xs {
-            @include font-xl;
+            @include font-lg;
             width: 95vw;
             height: $helper-space * 2.75;
         }
-        padding-left: $helper-space * 1.75;
-        height: $helper-space * 2;
-        border: $helper-space / 8 solid $color-silver;
-        color: $color-carbon;
-        &:focus,
-        &:focus-visible {
-            border: $helper-space / 8 solid $color-venice;
+        &[type="search"]:focus {
+            @include box-shadow;
+            @include input-status;
+            border: $border-width $border-style $color-venice;
             outline: 0;
         }
-        &.input__error {
-            border-color: $color-wcag;
+    }
+    &__status {
+        @include max-xs {
+            display: none;
+        }
+        margin-left: $helper-half;
+        &.success {
+            color: $color-green-default;
+        }
+        &.error {
+            color: $color-wcag;
         }
     }
     &__button {
         @include border-radius;
         @include font-primary;
-        @include border-wcag;
         @include transition-all;
-        @include font-xl;
-        background: $color-green;
-        color: $color-white;
-        padding: 0 $helper-space * 1.5;
+        @include font-md;
+        background: $color-green-default;
+        color: $color-primary;
+        padding: 0 $helper-space;
         height: $helper-space * 2;
-        border-style: solid;
+        border: $border-placeholder;
         cursor: pointer;
         @include max-xs {
             width: 95vw;
             order: 1;
             height: $helper-space * 2.75;
         }
+        &:focus {
+            border: $border-width $border-style $color-wcag;
+            outline: 0;
+        }
         &:hover {
-            background: $color-white;
-            border-color: $color-green;
-            color: $color-green;
+            @include box-shadow;
+            background: $color-green-hover;
+            border-color: $color-green-hover;
         }
     }
 }

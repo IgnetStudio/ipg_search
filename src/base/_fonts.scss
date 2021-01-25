@@ -57,6 +57,10 @@
     font-size: $helper-space * 0.875;
 }
 
-@mixin font-xl {
+@mixin font-lg {
     font-size: $helper-space;
+}
+
+@mixin font-xl {
+    font-size: $helper-space * 1.25;
 }

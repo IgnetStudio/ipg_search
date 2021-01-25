@@ -1,21 +1,27 @@
 // TABLE
 
 .table {
-    background: $color-white;
+    background: $color-primary;
     @include min-xs {
-        height: calc(100vh - #{$helper-space * 7});
+        height: auto;
     }
     &__wrapper {
         overflow-x: auto;
-        @include max-xs {
-            padding: $helper-space / 2;
+        @include max-md {
+            padding: $helper-half;
         }
     }
     &__results {
         width: 100%;
-        margin-top: $helper-space * 2;
         text-align: left;
         color: $color-silver;
+        margin-top: $helper-half;
+        @include min-md {
+            margin-top: $helper-space * 2;
+        }
+        @include device-landscape {
+            margin: $helper-half 0;
+        }
         @include max-xs {
             margin: 0;
         }
@@ -28,30 +34,36 @@
         tbody {
             @include font-md;
             > tr.table__empty {
-                border-color: transparent;
-                > td {
-                    color: $color-wcag;
+                display: none;
+                @include max-xs {
+                    display: block;
+                    background: $color-alabaster;
+                    > td {
+                        width: auto;
+                        color: $color-wcag;
+                    }
                 }
             }
         }
         tr {
             @include transition-all;
             &:hover {
+                @include box-shadow;
                 background: $color-alabaster;
                 @include max-xs {
                     border-color: $color-venice;
-                    background: $color-white;
+                    background: $color-primary;
                     td:first-child {
                         background: $color-venice;
                         border-color: $color-venice;
-                        color: $color-white;
+                        color: $color-primary;
                     }
                 }
             }
             @include max-xs {
                 @include flex-row;
-                border: $helper-space / 16 solid $color-silver;
-                margin-bottom: $helper-space / 2;
+                border: $helper-unit $border-style $color-silver;
+                margin-bottom: $helper-half;
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -62,8 +74,8 @@
                 width: auto;
                 vertical-align: middle;
                 padding: $helper-space $helper-space * 1.5;
-                border: $helper-space / 16 solid transparent;
-                border-bottom: $helper-space / 16 solid $color-alabaster;
+                border: $helper-unit $border-style transparent;
+                border-bottom: $helper-unit $border-style $color-alabaster;
                 @include min-lg {
                     &:first-child {
                         width: 10%;
@@ -76,21 +88,22 @@
                     padding: $helper-space * 0.75;
                 }
                 @include max-xs {
-                    padding: $helper-space * 0.875;
+                    padding: $helper-space;
                 }
             }
             td {
                 @include max-xs {
-                    @include font-xl;
+                    @include flex-center;
+                    @include font-lg;
                     position: relative;
                     width: 100%;
-                    border: $helper-space / 16 solid $color-alabaster;
+                    border: $helper-unit $border-style $color-alabaster;
                     &:first-child {
                         background: $color-alabaster;
                     }
                 }
                 &:nth-child(2) {
-                    @include font-xl;
+                    @include font-lg;
                     color: $color-carbon;
                 }
             }

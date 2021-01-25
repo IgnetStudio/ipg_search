@@ -5,8 +5,12 @@ body {
     @include transition-all;
     @include font-primary;
     @include text-selection;
-    background: $color-white;
     position: relative;
+}
+
+.app {
+    background: $color-primary;
+    height: 100vh;
 }
 
 .container-fluid {

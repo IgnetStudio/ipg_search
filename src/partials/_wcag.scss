@@ -1,8 +1,14 @@
 // WCAG
 
-.screenreader-text {
+:root {
+    &.wcag-size {
+        @include font-xl;
+    }
+}
+
+.screen-reader-text {
     @include transition-transform;
-    @include border-wcag;
+    @include border-wcag-dashed;
     position: absolute;
     span {
         @include flex-center;
@@ -14,7 +20,7 @@
         display: inline-block;
         box-sizing: border-box;
         background: $color-venice;
-        color: $color-alabaster;
+        color: $color-primary;
         width: $helper-space * 9;
         height: $helper-space * 3;
         margin: auto;
@@ -22,169 +28,200 @@
     }
 }
 
-.helpers {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: $helper-space / 2;
-    @include device-landscape {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        top: 0;
-        bottom: auto;
-    }
-    @include max-xs {
-        @include color-invert;
-        top: 0;
-        bottom: auto;
-        padding: $helper-space * 0.375;
-    }
-    .contrast-toggle {
-        @include border-wcag;
-        background: url("../public/img/contrast.svg") no-repeat;
-        width: $helper-space * 2;
-        height: $helper-space * 2;
-        height: auto;
-        padding: $helper-space;
-        cursor: pointer;
+.wcag {
+    &-helpers {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: $helper-half;
         @include device-landscape {
-            @include color-invert;
-            &:focus {
-                border-color: $color-black;
-            }
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            top: -#{$helper-unit * 2};
+            bottom: auto;
         }
         @include max-xs {
-            &:focus {
-                border-color: $color-marine;
+            @include color-invert;
+            position: absolute;
+            display: flex;
+            top: 0;
+            bottom: auto;
+            padding: $helper-space * 0.375;
+        }
+        & > button {
+            @include border-wcag-dashed;
+            display: block;
+            padding: $helper-space;
+            cursor: pointer;
+            background-color: transparent;
+            background-position: center center;
+            background-repeat: no-repeat;
+            &.toggle-font {
+                background-image: url("../public/img/wcag-size.svg");
+            }
+            &.toggle-contrast {
+                background-image: url("../public/img/wcag-contrast.svg");
+            }
+            @include device-landscape {
+                @include color-invert;
+                &:focus {
+                    border-color: $color-side;
+                }
+            }
+            @include max-xs {
+                &:focus {
+                    border-color: $color-marine;
+                }
             }
         }
     }
-}
-
-.dark-mode {
-    @include color-invert;
-    @include transition-filter;
-    @include font-wcag;
-    background: $color-black;
-    .header {
-        background: $color-white;
-        &__brand {
-            @include max-xs {
-                border-color: $color-venice;
-            }
-            img:focus {
-                border-color: $color-black;
-            }
-        }
-        &__filter {
-            span {
-                color: $color-carbon;
-            }
-            .header__navigation > ul {
-                > li {
-                    > a {
-                        color: $color-carbon;
-                        margin-top: 0;
-                        &:focus {
-                            border: 2px dashed $color-black;
-                            outline: 0;
-                        }
-                    }
-                    &.header__filter-overlay {
-                        background: $color-venice;
-                    }
-                    &:first-child {
-                        > a {
-                            color: $color-white;
-                        }
-                    }
+    &-mode {
+        @include color-invert;
+        @include transition-filter;
+        @include font-wcag;
+        background: $color-side;
+        .header {
+            background: $color-primary;
+            &__brand {
+                @include max-xs {
+                    border-color: $color-venice;
                 }
-                &:hover {
-                    li:not(:hover) {
+                img:focus {
+                    border-color: $color-side;
+                }
+            }
+            &__filter {
+                span {
+                    color: $color-carbon;
+                }
+                .header__navigation > ul {
+                    > li {
                         > a {
                             color: $color-carbon;
+                            margin-top: 0;
+                            &:focus {
+                                border: $border-width dashed $color-side;
+                                outline: 0;
+                            }
+                        }
+                        &.header__filter-overlay {
+                            background: $color-venice;
+                        }
+                        &:first-child {
+                            > a {
+                                color: $color-primary;
+                            }
+                        }
+                    }
+                    &:hover {
+                        li:not(:hover) {
+                            > a {
+                                color: $color-carbon;
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    .search {
-        border-color: $color-venice;
-        &__icon::before {
-            content: "";
-        }
-        &__input {
-            @include color-invert;
-            color: $color-white;
-            border-color: $color-silver;
-            padding-left: $helper-space / 2;
-            background: $color-carbon;
-            &:focus {
-                border-color: $color-alabaster;
+        .search {
+            border-color: $color-venice;
+            &__icon::before {
+                content: "";
             }
-            &.input__error {
-                border-color: $color-wcag;
+            &__input {
+                color: $color-side;
+                border-color: $color-carbon;
+                padding-left: $helper-half;
+                background: $color-alabaster;
+                @include input-placeholder {
+                    color: $color-carbon;
+                }
+                &:focus {
+                    border-color: $color-side;
+                }
+                &.input__success {
+                    @include border-wcag-color;
+                    &:focus {
+                        @include border-wcag-color;
+                        color: $color-wcag;
+                    }
+                }
+                &.input__error {
+                    @include border-wcag-color;
+                    @include color-invert;
+                    color: $color-wcag;
+                }
             }
-        }
-        &__button {
-            color: $color-black;
-            &:hover {
-                background: $color-wcag;
-                border-color: $color-wcag;
-            }
-        }
-    }
-    .table {
-        &__results {
-            color: $color-venice;
-            tbody {
-                > tr.table__empty {
+            &__status {
+                &.success {
+                    color: $color-wcag;
+                }
+                &.error {
                     @include color-invert;
                 }
             }
-            tr {
-                border-color: $color-wcag;
+            &__button {
+                color: $color-side;
                 &:hover {
-                    background: $color-green;
-                    td {
-                        &:first-child {
-                            background: $color-white;
-                            color: $color-black;
-                            border-bottom-color: $color-marine;
+                    @include border-wcag-color;
+                    background: $color-wcag;
+                }
+            }
+        }
+        .table {
+            &__results {
+                color: $color-venice;
+                tbody {
+                    > tr.table__empty {
+                        @include color-invert;
+                        background: $color-wcag;
+                    }
+                }
+                tr {
+                    @include border-wcag-color;
+                    &:hover {
+                        background: $color-green-default;
+                        td {
+                            &:first-child {
+                                background: $color-primary;
+                                color: $color-side;
+                                border-bottom-color: $color-marine;
+                                @include max-xs {
+                                    @include border-wcag-color;
+                                    background: $color-wcag;
+                                }
+                            }
+                        }
+                    }
+                }
+                th,
+                td {
+                    @include transition-all;
+                    border: $helper-unit $border-style $color-wcag;
+                }
+                td {
+                    @include max-xs {
+                        @include font-md;
+                    }
+                    &:first-child {
+                        background: $color-wcag;
+                        color: $color-primary;
+                        @include min-xs {
+                            border-bottom-color: $color-primary;
                         }
                     }
                 }
             }
-            th,
-            td {
-                @include transition-all;
-                border: $helper-space / 16 solid $color-wcag;
+        }
+        .screen-reader-text {
+            span {
+                height: $helper-space * 2.75;
             }
-            td {
-                &:first-child {
-                    background: $color-wcag;
-                    color: $color-white;
-                    @include min-xs {
-                        border-bottom-color: $color-white;
-                    }
-                }
+            &:focus {
+                border-color: $color-side;
             }
-        }
-    }
-    .screenreader-text {
-        span {
-            height: $helper-space * 2.75;
-        }
-        :focus {
-            border-color: $color-black;
-            background: $color-wcag;
-        }
-    }
-    .helpers {
-        .contrast-toggle:focus {
-            border-color: $color-white;
         }
     }
 }

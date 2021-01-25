@@ -1,6 +1,6 @@
 'use strict';
 
-// consume results
+// call an endpoint for results
 
 export async function fetchResults(query = '') {
   const response = await fetch('http://localhost:5000/results?q=' + query);
@@ -8,32 +8,51 @@ export async function fetchResults(query = '') {
   return results;
 }
 
+// consume results
+
 async function getData(query = '') {
   try {
     const data = await fetchResults(query);
-    drawTable(data); // export data to static table
+    drawTable(data); // set values, handle values, set table elements, insert data from API & apply changes
   } catch (error) {
     console.error(error);
   }
 }
 
-// fill-up the table
+// fill-up the table with results
 
-function drawTable(data) {
+const drawTable = (data) => {
+  // set values
   const tableBody = document.querySelector('table.table__results > tbody');
   const searchInput = document.querySelector('input[name="search-data"]');
-
-  // handle values
+  const searchStatus = document.querySelector('span.search__status');
+  const recordsIndex = data.length;
+  const recordsCounter = `${recordsIndex} records`;
   const noData = 'No data';
   const tableEmpty = `<tr class="table__empty"><td>${noData}</td></tr>`;
-  searchInput.classList.remove('input__error');
+
+  // handle values
+  searchInput.classList.remove('input__success', 'input__error');
+  searchStatus.classList.remove('success', 'error');
+  searchStatus.innerHTML = '';
   tableBody.innerHTML = '';
-  if (!data.length) {
-    tableBody.innerHTML = tableEmpty;
-    searchInput.classList.add('input__error');
+
+  if (recordsIndex < 5) {
+    searchInput.classList.add('input__success');
+    searchStatus.classList.add('success');
+    searchStatus.innerHTML = recordsCounter;
   }
 
-  data.forEach(function (item, index) {
+  if (!recordsIndex) {
+    searchInput.classList.remove('input__success');
+    searchInput.classList.add('input__error');
+    searchStatus.classList.remove('success');
+    searchStatus.classList.add('error');
+    searchStatus.innerHTML = noData;
+    tableBody.innerHTML = tableEmpty;
+  }
+
+  data.forEach((item, index) => {
     // set table elements
     const tableRow = document.createElement('tr');
     const tableCellId = document.createElement('td');
@@ -51,16 +70,18 @@ function drawTable(data) {
     tableRow.appendChild(tableCellEmail);
     tableBody.appendChild(tableRow);
   });
-}
+};
+
+// search box handler
 
 const Data = () => {
   getData();
 
-  window.onload = function () {
+  window.onload = () => {
     const searchInput = document.querySelector('input[name="search-data"]');
     let debouncer;
 
-    // search box value handler
+    // search box value
     searchInput.addEventListener('keyup', async (e) => {
       const query = e.target.value;
 

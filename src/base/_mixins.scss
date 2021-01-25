@@ -1,6 +1,8 @@
 // HELPERS
 
 $helper-space: 1rem;
+$helper-half: $helper-space / 2;
+$helper-unit: $helper-space / 16;
 
 // MIXINS
 
@@ -22,7 +24,7 @@ $helper-space: 1rem;
 @mixin text-selection {
     ::selection {
         background: $color-venice;
-        color: $color-white;
+        color: $color-primary;
     }
 }
 
@@ -30,28 +32,80 @@ $helper-space: 1rem;
     filter: invert(100%);
 }
 
-@mixin border-radius {
-    border-radius: $helper-space / 3;
-}
-
-@mixin border-wcag {
-    border: $helper-space / 8 dashed transparent;
-    &:focus {
-        border-color: $color-wcag;
-        outline: 0;
-        color: $color-white;
-    }
-    .dark-mode {
-        &:focus {
-            border-color: $color-wcag;
-        }
-    }
-}
-
 @mixin hide-element {
     left: -9999px;
     position: absolute;
     visibility: hidden;
+}
+
+@mixin size-navigation {
+    width: $helper-space * 3.6;
+    @include device-landscape {
+        width: $helper-space * 3.3;
+    }
+    @include max-xs {
+        width: $helper-space * 5;
+    }
+}
+
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        width: 100%;
+        height: 0;
+        clear: both;
+    }
+}
+
+// BORDERS
+
+$border-width: $helper-space / 8;
+$border-style: solid;
+$border-placeholder: $border-width $border-style transparent;
+
+@mixin border-radius {
+    border-radius: $helper-space / 3;
+}
+
+@mixin border-wcag-color {
+    border-color: $color-wcag;
+}
+
+@mixin border-wcag-dashed {
+    border: $border-width dashed transparent;
+    &:focus {
+        @include border-wcag-color;
+        outline: 0;
+        color: $color-primary;
+    }
+    .wcag-mode {
+        &:focus {
+            @include border-wcag-color;
+        }
+    }
+}
+
+@mixin box-shadow {
+    box-shadow: 0px 0px 3px 0px $color-silver;
+}
+
+// INPUTS
+
+@mixin input-safari {
+    -webkit-appearance: none;
+    outline-offset: -#{$helper-space / 4};
+}
+
+@mixin input-status {
+    &.input__success {
+        border-color: $color-green-default;
+        color: $color-green-default;
+    }
+    &.input__error {
+        @include border-wcag-color;
+        color: $color-wcag;
+    }
 }
 
 @mixin input-placeholder {
@@ -67,16 +121,6 @@ $helper-space: 1rem;
     }
     &::-webkit-search-cancel-button {
         -webkit-appearance: none;
-    }
-}
-
-@mixin clearfix {
-    &:after {
-        content: "";
-        display: table;
-        width: 100%;
-        height: 0;
-        clear: both;
     }
 }
 
@@ -96,8 +140,8 @@ $transition-easing: linear;
 @mixin transition-transform {
     transform: translateY(-2rem);
     transition: transform $transition-duration $transition-easing;
-    width: 1px;
-    height: 1px;
+    width: $helper-unit;
+    height: $helper-unit;
     top: auto;
     left: -999px;
 }

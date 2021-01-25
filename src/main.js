@@ -2,13 +2,19 @@
 
 import App from './App';
 
-// toggle dark mode
+// toggle font resizer & dark mode
 
+const root = document.querySelector(':root');
 const body = document.querySelector('body');
-const contrastToggle = document.querySelector('.contrast-toggle');
+const toggleFont = document.querySelector('.toggle-font');
+const toggleContrast = document.querySelector('.toggle-contrast');
 
-contrastToggle.addEventListener('click', function () {
-  body.classList.toggle('dark-mode');
+toggleFont.addEventListener('click', () => {
+  root.classList.toggle('wcag-size');
+});
+
+toggleContrast.addEventListener('click', () => {
+  body.classList.toggle('wcag-mode');
 });
 
 // Load application

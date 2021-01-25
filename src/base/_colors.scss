@@ -1,12 +1,13 @@
 // COLORS
 
-$color-white: #fff;
-$color-alabaster: #f8f8f8;
-$color-silver: #c4c4c4;
-$color-wcag: #da643e; // inverted $color-marine
-$color-green: #8dc63f;
-$color-bermuda: #80c4da;
-$color-marine: #259bc1;
-$color-venice: #055d92;
-$color-carbon: #292929;
-$color-black: #000;
+$color-primary: rgba(255, 255, 255, 1);
+$color-side: rgba(0, 0, 0, 1);
+$color-wcag: rgba(218, 100, 62, 1); // inverted $color-marine
+$color-alabaster: rgba(35, 39, 45, 0.03);
+$color-silver: rgba(41, 41, 41, 0.25);
+$color-green-default: rgba(140, 198, 62, 1);
+$color-green-hover: rgba(145, 195, 107, 1);
+$color-bermuda: rgba(128, 196, 218, 1);
+$color-marine: rgba(37, 155, 193, 1);
+$color-venice: rgba(5, 93, 146, 1);
+$color-carbon: rgba(41, 41, 41, 1);
