@@ -1,8 +1,23 @@
 'use strict';
 
+// toggle font resizer & dark mode
+
+const root = document.querySelector(':root');
+const body = document.querySelector('body');
+const toggleFont = document.querySelector('.toggle-font');
+const toggleContrast = document.querySelector('.toggle-contrast');
+
+toggleFont.addEventListener('click', () => {
+  root.classList.toggle('wcag-size');
+});
+
+toggleContrast.addEventListener('click', () => {
+  body.classList.toggle('wcag-mode');
+});
+
 // call an endpoint for results
 
-export async function fetchResults(query = '') {
+async function fetchResults(query = '') {
   const response = await fetch('http://localhost:5000/results?q=' + query);
   const results = await response.json();
   return results;
@@ -100,4 +115,4 @@ const Data = () => {
   };
 };
 
-export default Data;
+Data();

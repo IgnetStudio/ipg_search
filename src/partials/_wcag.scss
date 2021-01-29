@@ -59,10 +59,10 @@
             background-position: center center;
             background-repeat: no-repeat;
             &.toggle-font {
-                background-image: url("../public/img/wcag-size.svg");
+                background-image: url("./img/wcag-size.svg");
             }
             &.toggle-contrast {
-                background-image: url("../public/img/wcag-contrast.svg");
+                background-image: url("./img/wcag-contrast.svg");
             }
             @include device-landscape {
                 @include color-invert;

@@ -4,11 +4,7 @@
   "description": "Ignet Playground: Search box",
   "main": "index.js",
   "scripts": {
-    "api": "npx json-server --watch db/api.json --port 5000",
-    "dev": "yarn run clean && parcel public/index.html --out-dir dev -p 3000",
-    "build": "parcel build public/index.html --out-dir dist --public-url ./",
-    "clean": "rimraf ./dev && rimraf -rf ./.cache",
-    "test": "jest"
+    "api": "npx json-server --watch db/api.json --port 5000"
   },
   "staticFiles": {
     "staticPath": "public",
@@ -21,16 +17,6 @@
   "author": "[IgnetStudio] <ignet.studio@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-transform-runtime": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/runtime-corejs2": "^7.12.5",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3",
-    "json-server": "^0.16.3",
-    "node-sass": "^5.0.0",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-static-files-copy": "^2.5.0",
-    "rimraf": "^3.0.2"
+    "json-server": "^0.16.3"
   }
 }

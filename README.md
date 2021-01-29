@@ -31,9 +31,9 @@ Simple, asynchronous search box call with a real REST API call & debouncer, base
 
 `yarn run api`
 
-4. Search through site content at http://localhost:3000 to call an endpoint for results
+4. Search through site content to call an endpoint for results
 
-`yarn run dev`
+`open app/index.html`
 
 ### Notes
 
@@ -54,10 +54,7 @@ Simple, asynchronous search box call with a real REST API call & debouncer, base
 ## Dependencies
 
 - [Atkinson](https://brailleinstitute.org/freefont) (hyperlegible font)
-- [Babel](https://babeljs.io/) (JS compiler)
-- [Jest](https://jestjs.io/) (test runner)
 - [json-server](https://www.npmjs.com/package/json-server) (backend with mocked API)
-- [Parcel](https://parceljs.org/) (module bundler)
 - [Prettier](https://prettier.io/) (code formatter)
 - [Sass](https://sass-lang.com/) (CSS preprocessor)
 - [Yarn](https://yarnpkg.com/) (package manager)

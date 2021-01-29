@@ -29,7 +29,7 @@
     }
     &__icon {
         &::before {
-            content: url(../public/img/search.png);
+            content: url(./img/search.png);
             position: absolute;
             top: $helper-half;
             left: $helper-half;
