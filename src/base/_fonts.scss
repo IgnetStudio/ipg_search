@@ -35,7 +35,7 @@
 // SETUP
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
-@include font-face(Atkinson, fonts/Atkinson);
+@include font-face(Atkinson, "../public/fonts/Atkinson");
 
 @mixin font-primary {
     font-family: "Source Sans Pro", sans-serif;

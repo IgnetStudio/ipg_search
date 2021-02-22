@@ -31,31 +31,36 @@ Simple, asynchronous search box call with a real REST API call & debouncer, base
 
 `yarn run api`
 
-4. Search through site content to call an endpoint for results
+4. Search through site content at http://localhost:3000 to call an endpoint for results
 
-`open app/index.html`
+`yarn run dev`
+
+5. Build* the app for production to the `dist` folder
+
+`yarn run build`
 
 ### Notes
 
 1. as per [preferred approach](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 2. [npm equivalents](https://classic.yarnpkg.com/en/docs/migrating-from-npm/#toc-cli-commands-comparison) can be used as well
+5. app bundler optimizes the build for the best performance (the build is minified and the filenames include the hashes)
 
 ---
 ## App Preview
 ### Desktop
-![app-preview-desktop](https://ignet.h2g.pl/img/desktop-app-preview.gif)
+![desktop-app-preview](https://ignet.h2g.pl/img/desktop-app-preview.gif)
 
 ---
 ### Mobile
 
-![app-preview-mobile](https://ignet.h2g.pl/img/mobile-app-preview.gif)
+![mobile-app-preview](https://ignet.h2g.pl/img/mobile-app-preview.gif)
 
 ---
 ## Dependencies
 
 - [Atkinson](https://brailleinstitute.org/freefont) (hyperlegible font)
 - [json-server](https://www.npmjs.com/package/json-server) (backend with mocked API)
-- [Prettier](https://prettier.io/) (code formatter)
+- [Parcel](https://parceljs.org/) (module bundler)
 - [Sass](https://sass-lang.com/) (CSS preprocessor)
 - [Yarn](https://yarnpkg.com/) (package manager)
 
