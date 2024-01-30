@@ -48,12 +48,12 @@ Simple, asynchronous search box call with a real REST API call & debouncer, base
 ---
 ## App Preview
 ### Desktop
-![desktop-app-preview](https://ignet.h2g.pl/img/desktop-app-preview.gif)
+![desktop-app-preview](https://ignet.com.pl/portfolio/assets/desktop-app-preview.gif)
 
 ---
 ### Mobile
 
-![mobile-app-preview](https://ignet.h2g.pl/img/mobile-app-preview.gif)
+![mobile-app-preview](https://ignet.com.pl/portfolio/assets/mobile-app-preview.gif)
 
 ---
 ## Dependencies
